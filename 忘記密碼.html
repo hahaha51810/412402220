@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忘記密碼</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* 水平置中 */
+            align-items: center; /* 垂直置中 */
+            height: 100vh; /* 使頁面高度填滿視窗 */
+            background-color: #f5f5f5; /* 設定背景顏色 */
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 900px; /* 限制最大寬度 */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 增加陰影效果 */
+            border-radius: 10px; /* 增加圓角 */
+            overflow: hidden; /* 隱藏溢出部分 */
+            background-color: white; /* 設定背景顏色 */
+        }
+        .image {
+            flex: 0 0 50%; /* 調整圖片區域的寬度 */
+            display: flex;
+            justify-content: center; /* 圖片水平居中 */
+            align-items: center; /* 圖片垂直居中 */
+        }
+        img {
+            max-width: 90%; /* 確保圖片不會超過區域 */
+            height: auto; /* 自動調整高度 */
+        }
+        .form-container {
+            flex: 0 0 50%; /* 調整表單區域的寬度 */
+            padding: 40px; /* 增加內邊距 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 垂直置中 */
+            align-items: flex-start; /* 內容左對齊 */
+        }
+        h1 {
+            font-size: 28px; /* 增加標題字體大小 */
+            margin-top: 20px; /* 增加上邊距 */
+            margin-left: 130px; /* 調整這裡以手動調整標題的左側位置 */
+            
+            margin-bottom: 20px; /* 增加下邊距 */
+            text-align: left;
+        }
+        p {
+            margin: 10px 0 20px 0; /* 上下邊距 */
+            line-height: 1.5; /* 行高 */
+        }
+        input[type="text"] {
+            width: 140%; /* 輸入框寬度 */
+            padding: 15px; /* 增加內邊距 */
+            margin-bottom: 10px; /* 下方間距 */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* 包含內邊距和邊框在內的寬度計算 */
+        }
+        input[type="submit"] {
+            background-color: rgb(246, 139, 31);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px; /* 增加內邊距 */
+            cursor: pointer;
+            width: 140%; /* 按鈕寬度 */
+            font-size: 16px; /* 調整字體大小 */
+            transition: background-color 0.3s; /* 增加過渡效果 */
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(246, 139, 31); /* 懸停時改變顏色 */
+        }
+        .success-message {
+            display: none; /* 初始隱藏成功訊息 */
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // 阻止表單默認提交行為
+            document.getElementById('success-message').style.display = 'block'; // 顯示成功訊息
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="你好.jpg" alt="圖片"> <!-- 使用 <img> 標籤顯示圖片 -->
+        </div>
+        <div class="form-container">
+            <h1>忘記密碼</h1>
+            <p>請輸入Email帳號，我們將會寄發修改密碼方式到<br>您的信箱。</p>
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="請輸入Email" required>
+                <input type="submit" value="確定">
+            </form>
+            <div id="success-message" class="success-message">寄信成功！請檢查您的信箱。</div>
+        </div>
+    </div>
+</body>
+</html>
